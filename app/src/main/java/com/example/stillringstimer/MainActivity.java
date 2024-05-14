@@ -2,12 +2,14 @@ package com.example.stillringstimer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import android.os.CountDownTimer;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.concurrent.TimeUnit;
@@ -27,9 +29,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         Button startButton = findViewById(R.id.startButton);
         startButton.setOnClickListener(v -> startTimer());
-
+        ImageButton homeButton = findViewById(R.id.homeButton);
 
         seconds = findViewById(R.id.seconds);
         hundredths = findViewById(R.id.hundredths);
@@ -45,6 +48,11 @@ public class MainActivity extends AppCompatActivity {
         seconds_down.setOnClickListener(v -> secDown());
         hundredths_up.setOnClickListener(v -> hunUp());
         hundredths_down.setOnClickListener(v -> hunDown());
+
+        homeButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, Homepage.class);
+            startActivity(intent);
+        });
 
     }
     @Override

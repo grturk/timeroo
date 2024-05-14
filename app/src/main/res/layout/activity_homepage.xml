@@ -14,26 +14,27 @@
       android:layout_width="200dp"
       android:layout_height="200dp"
       android:layout_marginStart="8dp"
+      android:layout_marginTop="36dp"
       android:layout_marginEnd="8dp"
       android:src="@drawable/timers"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.497"
       app:layout_constraintStart_toStartOf="parent"
-      tools:layout_editor_absoluteY="58dp" />
+      app:layout_constraintTop_toTopOf="parent" />
 
   <LinearLayout
       android:id="@+id/titleLinearLayout"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:orientation="vertical"
-      app:layout_constraintTop_toBottomOf="@id/logoImageView"
+      android:layout_marginTop="16dp"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      android:layout_marginTop="16dp">
+      app:layout_constraintTop_toBottomOf="@id/logoImageView">
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Timeroo"
         android:textAppearance="@style/titleStyle" />
@@ -44,55 +45,47 @@
       android:layout_width="258dp"
       android:layout_height="100dp"
       android:layout_marginHorizontal="25dp"
-      android:layout_marginBottom="380dp"
+      android:layout_marginBottom="20dp"
       android:background="@drawable/rounded_button_green_1"
-      android:paddingVertical="175dp"
+      android:paddingVertical="20dp"
       android:text="Classic"
       android:textColor="#FFFFFF"
-      android:textSize="45sp"
+      android:textSize="20sp"
       android:theme="@null"
-      app:iconTint="@color/firstGreenButton"
-      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintBottom_toTopOf="@+id/secondGreenButton"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.496"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@id/titleLinearLayout"
-      app:layout_constraintVertical_bias="1.0" />
+      app:layout_constraintStart_toStartOf="parent" />
 
   <Button
       android:id="@+id/secondGreenButton"
       android:layout_width="258dp"
       android:layout_height="100dp"
       android:layout_marginHorizontal="25dp"
-      android:layout_marginBottom="252dp"
+      android:layout_marginBottom="20dp"
       android:background="@drawable/rounded_button_green_2"
-      android:paddingVertical="175dp"
-      android:text="Classic"
+      android:paddingVertical="20dp"
+      android:text="Gymnastics"
       android:textColor="#FFFFFF"
-      android:textSize="45sp"
+      android:textSize="20sp"
       android:theme="@null"
-      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintBottom_toTopOf="@+id/thirdGreenButton"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.496"
-      app:layout_constraintStart_toStartOf="parent"
-      />
+      app:layout_constraintStart_toStartOf="parent" />
 
   <Button
       android:id="@+id/thirdGreenButton"
       android:layout_width="258dp"
       android:layout_height="100dp"
       android:layout_marginHorizontal="25dp"
-      android:layout_marginBottom="116dp"
+      android:layout_marginBottom="60dp"
       android:background="@drawable/rounded_button_green_3"
-      android:paddingVertical="175dp"
-      android:text="Classic"
+      android:paddingVertical="20dp"
+      android:text="Intervals"
       android:textColor="#FFFFFF"
-      android:textSize="45sp"
+      android:textSize="20sp"
       android:theme="@null"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.496"
       app:layout_constraintStart_toStartOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
