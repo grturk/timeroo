@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
         Button startButton = findViewById(R.id.startButton);
         startButton.setOnClickListener(v -> startTimer());
-        ImageButton homeButton = findViewById(R.id.homeButton);
 
         seconds = findViewById(R.id.seconds);
         hundredths = findViewById(R.id.hundredths);
@@ -49,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         hundredths_up.setOnClickListener(v -> hunUp());
         hundredths_down.setOnClickListener(v -> hunDown());
 
+        ImageButton homeButton = findViewById(R.id.homeButton);
         homeButton.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, Homepage.class);
             startActivity(intent);

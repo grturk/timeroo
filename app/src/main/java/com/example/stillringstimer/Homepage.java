@@ -24,9 +24,15 @@ public class Homepage extends AppCompatActivity {
             return insets;
         });
 
-        Button choose_classic = findViewById(R.id.firstGreenButton);
+        Button choose_classic = findViewById(R.id.secondGreenButton);
         choose_classic.setOnClickListener(v -> {
             Intent intent = new Intent(Homepage.this, MainActivity.class);
+            startActivity(intent);
+        });
+
+        Button choose_intervals = findViewById(R.id.thirdGreenButton);
+        choose_intervals.setOnClickListener(v -> {
+            Intent intent = new Intent(Homepage.this, MyRoutines.class);
             startActivity(intent);
         });
 
