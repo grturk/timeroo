@@ -19,10 +19,11 @@ public class MainActivity extends AppCompatActivity {
     private CountDownTimer countDownTimer;
     private MediaPlayer mediaPlayerStart;
     private MediaPlayer mediaPlayerStop;
-
+    private Button_up_down button_up_down; // logika za spreminjanje startTime
     private long startTime;
     private TextView seconds;
     private TextView hundredths;
+    private TextView minutes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,23 +31,27 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        Button startButton = findViewById(R.id.startButton);
-        startButton.setOnClickListener(v -> startTimer());
 
         seconds = findViewById(R.id.seconds);
         hundredths = findViewById(R.id.hundredths);
+        minutes = null;
+        button_up_down = new Button_up_down(seconds, hundredths, false, minutes);
+
+        Button startButton = findViewById(R.id.startButton);
+        startButton.setOnClickListener(v -> startTimer());
+
         Button seconds_up = findViewById(R.id.seconds_up_btn);
         Button seconds_down = findViewById(R.id.seconds_down_btn);
         Button hundredths_up = findViewById(R.id.hundredths_up_btn);
         Button hundredths_down = findViewById(R.id.hundredths_down_btn);
 
-        int[] time = getTimeFromView();
-        startTime = time[0] * 1000L + time[1] * 10;
+        //int[] time = getTimeFromView();
+        //startTime = time[0] * 1000L + time[1] * 10;
 
-        seconds_up.setOnClickListener(v -> secUp());
-        seconds_down.setOnClickListener(v -> secDown());
-        hundredths_up.setOnClickListener(v -> hunUp());
-        hundredths_down.setOnClickListener(v -> hunDown());
+        seconds_up.setOnClickListener(v -> button_up_down.secUp());
+        seconds_down.setOnClickListener(v -> button_up_down.secDown());
+        hundredths_up.setOnClickListener(v -> button_up_down.hunUp());
+        hundredths_down.setOnClickListener(v -> button_up_down.hunDown());
 
         ImageButton homeButton = findViewById(R.id.homeButton);
         homeButton.setOnClickListener(v -> {
@@ -71,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
             mediaPlayerStop = null;
         }
     }
-
+/*
     private void secUp() {
         int[] time = getTimeFromView();
         int sec = time[0];
@@ -159,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
         int[] t = new int[]{seconds_input, hundredths_input};
 
         return t;
-    }
+    }*/
     private void startTimer() {
 
         if (mediaPlayerStart == null) {
@@ -171,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
             countDownTimer.cancel();
         }
 
-        countDownTimer = new CountDownTimer(startTime, 10) {
+        countDownTimer = new CountDownTimer(button_up_down.getStartTime(), 10) {
             @Override
             public void onTick(long millisUntilFinished) {
                 formatSeconds(millisUntilFinished);
@@ -180,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFinish() {
 
-                formatSeconds(startTime);
+                formatSeconds(button_up_down.getStartTime());
                 // Play a sound
 
                 if (mediaPlayerStop == null) {

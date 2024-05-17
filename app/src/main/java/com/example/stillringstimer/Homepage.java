@@ -24,8 +24,14 @@ public class Homepage extends AppCompatActivity {
             return insets;
         });
 
-        Button choose_classic = findViewById(R.id.secondGreenButton);
+        Button choose_classic = findViewById(R.id.firstGreenButton);
         choose_classic.setOnClickListener(v -> {
+            Intent intent = new Intent(Homepage.this, ClassicTimer.class);
+            startActivity(intent);
+        });
+
+        Button choose_gymnastics = findViewById(R.id.secondGreenButton);
+        choose_gymnastics.setOnClickListener(v -> {
             Intent intent = new Intent(Homepage.this, MainActivity.class);
             startActivity(intent);
         });
