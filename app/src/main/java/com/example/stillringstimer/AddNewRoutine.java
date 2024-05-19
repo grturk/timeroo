@@ -93,6 +93,7 @@ public class AddNewRoutine extends AppCompatActivity {
             saveTrainingToStorage(training);
 
             Toast.makeText(this, "Routine saved successfully", Toast.LENGTH_SHORT).show();
+            finish();
         } else {
             Toast.makeText(this, "Routine name and at least one interval are required", Toast.LENGTH_SHORT).show();
         }

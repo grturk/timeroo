@@ -3,15 +3,20 @@ package com.example.stillringstimer;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DisplayTraining extends AppCompatActivity {
@@ -19,6 +24,7 @@ public class DisplayTraining extends AppCompatActivity {
     private LinearLayout intervalsContainer;
     private Gson gson;
 
+    private List<Training> trainings;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +52,16 @@ public class DisplayTraining extends AppCompatActivity {
             intent.putExtra("selectedTraining", gson.toJson(selectedTraining));
             startActivity(intent);
         });
+
+
+        trainings = getTrainingsFromStorage();
+
+        ImageButton deleteButton = findViewById(R.id.deleteButton);
+        deleteButton.setOnClickListener(v -> {
+            deleteTraining(selectedTraining);
+            Toast.makeText(this, "Training deleted", Toast.LENGTH_SHORT).show();
+            finish();  // Close the activity after deletion
+        });
     }
     private void displayAllIntervals(List<Interval> intervals) {
         intervalsContainer.removeAllViews();
@@ -68,5 +84,28 @@ public class DisplayTraining extends AppCompatActivity {
         repetitionsView.setText(String.format("Reps: %d", repetitions));
 
         intervalsContainer.addView(intervalView);
+
+    }
+
+    private void deleteTraining(Training selectedTraining) {
+        trainings.removeIf(training -> training.getName().equals(selectedTraining.getName()));
+        saveTrainingsToStorage(trainings);
+    }
+
+    private List<Training> getTrainingsFromStorage() {
+        SharedPreferences sharedPreferences = getSharedPreferences("trainings", MODE_PRIVATE);
+        String json = sharedPreferences.getString("trainings_list", "");
+        Type type = new TypeToken<List<Training>>() {}.getType();
+        List<Training> trainings = gson.fromJson(json, type);
+
+        return trainings != null ? trainings : new ArrayList<>();
+    }
+
+    private void saveTrainingsToStorage(List<Training> trainings) {
+        SharedPreferences sharedPreferences = getSharedPreferences("trainings", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        String json = gson.toJson(trainings);
+        editor.putString("trainings_list", json);
+        editor.apply();
     }
 }

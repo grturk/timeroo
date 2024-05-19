@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RingsTimer</string>
+    <string name="delete_training">delete_training</string>
 </resources>
