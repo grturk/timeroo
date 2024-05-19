@@ -72,6 +72,24 @@ public class RunRoutineActivity extends AppCompatActivity {
             mediaPlayerStop = null;
         }
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        if (countDownTimer != null) {
+            countDownTimer.cancel();
+        }
+        if (mediaPlayerStart != null) {
+            mediaPlayerStart.release();
+            mediaPlayerStart = null;
+        }
+        if (mediaPlayerStop != null) {
+            mediaPlayerStop.release();
+            mediaPlayerStop = null;
+        }
+    }
+
     private void startNextInterval() {
         if (currentIntervalIndex < intervals.size()) {
             Interval currentInterval = intervals.get(currentIntervalIndex);
