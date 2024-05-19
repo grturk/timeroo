@@ -3,6 +3,7 @@ package com.example.stillringstimer;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -14,11 +15,13 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import android.content.SharedPreferences;
 
-//import com.google.gson.Gson;
-//import com.google.gson.reflect.TypeToken;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +33,7 @@ public class AddNewRoutine extends AppCompatActivity {
     private Training training;
     private Interval interval;
     private Button_up_down button_up_down;
+    private Gson gson;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +41,7 @@ public class AddNewRoutine extends AppCompatActivity {
         setContentView(R.layout.activity_add_new_routine);
 
         intervals = new ArrayList<>();
+        gson = new Gson();
 
         editRoutineName = findViewById(R.id.editRoutineName);
         Button saveRoutineButton = findViewById(R.id.saveRoutineButton);
@@ -53,7 +58,18 @@ public class AddNewRoutine extends AppCompatActivity {
 
         intervalsContainer = findViewById(R.id.intervalsContainer);
     }
+    /*
+    // dela gson, s tem se bo dal shrant
+    private void testGson() {
+        Interval testInterval = new Interval(60000, 30000, 5);
+        Gson gson = new Gson();
+        String json = gson.toJson(testInterval);
+        Log.d("GsonTest", "Serialized: " + json);
 
+        Interval deserializedInterval = gson.fromJson(json, Interval.class);
+        Log.d("GsonTest", "Deserialized: " + deserializedInterval.getWorkDuration());
+    }*/
+/*
     private void saveRoutine() {
         // dobim ime nove rutine iz Add routine
         String routineName = editRoutineName.getText().toString().trim();
@@ -68,7 +84,7 @@ public class AddNewRoutine extends AppCompatActivity {
             Toast.makeText(this, "Routine name is required", Toast.LENGTH_SHORT).show();
         }
     }
-    /*
+*/
     private void saveRoutine() {
         String routineName = editRoutineName.getText().toString().trim();
 
@@ -76,10 +92,7 @@ public class AddNewRoutine extends AppCompatActivity {
             Training training = new Training(routineName, intervals);
             saveTrainingToStorage(training);
 
-            Intent resultIntent = new Intent();
-            resultIntent.putExtra("newRoutineName", routineName);
-            setResult(Activity.RESULT_OK, resultIntent);
-            finish();
+            Toast.makeText(this, "Routine saved successfully", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "Routine name and at least one interval are required", Toast.LENGTH_SHORT).show();
         }
@@ -88,7 +101,6 @@ public class AddNewRoutine extends AppCompatActivity {
     private void saveTrainingToStorage(Training training) {
         SharedPreferences sharedPreferences = getSharedPreferences("trainings", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        Gson gson = new Gson();
 
         String json = sharedPreferences.getString("trainings_list", "");
         Type type = new TypeToken<List<Training>>() {}.getType();
@@ -102,7 +114,16 @@ public class AddNewRoutine extends AppCompatActivity {
         json = gson.toJson(trainings);
         editor.putString("trainings_list", json);
         editor.apply();
-    }*/
+    }
+
+    private List<Training> getTrainingsFromStorage() {
+        SharedPreferences sharedPreferences = getSharedPreferences("trainings", MODE_PRIVATE);
+        String json = sharedPreferences.getString("trainings_list", "");
+        Type type = new TypeToken<List<Training>>() {}.getType();
+        List<Training> trainings = gson.fromJson(json, type);
+
+        return trainings != null ? trainings : new ArrayList<>();
+    }
 
     private void addNewInterval() {
         LayoutInflater inflater = getLayoutInflater();

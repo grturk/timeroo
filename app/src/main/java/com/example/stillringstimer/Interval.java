@@ -1,8 +1,9 @@
 package com.example.stillringstimer;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Interval {
+public class Interval implements Serializable {
     private long workDuration;
     private long restDuration;
     private int repetitions;

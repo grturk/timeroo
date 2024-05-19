@@ -13,6 +13,12 @@
         android:theme="@style/Theme.StillRingsTimer"
         tools:targetApi="31">
         <activity
+            android:name=".RunRoutineActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DisplayTraining"
+            android:exported="false" />
+        <activity
             android:name=".ClassicTimer"
             android:exported="false" />
         <activity

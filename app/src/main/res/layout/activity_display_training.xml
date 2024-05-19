@@ -15,42 +15,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <EditText
-        android:id="@+id/editRoutineName"
+    <TextView
+        android:id="@+id/routineName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="text"
-        android:hint="Add Name"
+        android:hint="Name"
         android:textAppearance="@style/titleStyle"
         android:textColor="#99F8FF"
         app:layout_constraintTop_toBottomOf="@id/menuLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
-        android:id="@+id/addNewIntervalButton"
-        android:layout_width="227dp"
-        android:layout_height="62dp"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/rounded_button_green_1"
-        android:paddingVertical="20dp"
-        android:text="Add New Interval"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        android:theme="@null"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editRoutineName" />
 
     <LinearLayout
         android:id="@+id/intervalsContainer"
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
         android:padding="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/addNewIntervalButton"
+        android:layout_marginTop="25dp"
+        app:layout_constraintTop_toBottomOf="@+id/routineName"
         app:layout_constraintBottom_toTopOf="@+id/startButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -76,23 +60,7 @@
         app:layout_constraintTop_toBottomOf="@id/intervalsContainer"
         app:layout_constraintVertical_bias="0.693" />
 
-    <Button
-        android:id="@+id/saveRoutineButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/rounded_button_green_1"
-        android:paddingVertical="20dp"
-        android:paddingHorizontal="45dp"
-        android:text="Save"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        android:theme="@null"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/startButton" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

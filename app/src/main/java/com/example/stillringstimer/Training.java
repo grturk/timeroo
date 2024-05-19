@@ -1,9 +1,10 @@
 package com.example.stillringstimer;
 
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Training {
+public class Training implements Serializable {
     private String name;
     private List<Interval> intervals;
 
