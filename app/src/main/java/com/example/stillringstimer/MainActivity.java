@@ -58,6 +58,13 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, Homepage.class);
             startActivity(intent);
         });
+        ImageButton backButton = findViewById(R.id.goBackButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getOnBackPressedDispatcher().onBackPressed();
+            }
+        });
 
     }
     @Override

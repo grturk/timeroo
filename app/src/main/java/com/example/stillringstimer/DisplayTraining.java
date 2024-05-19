@@ -1,5 +1,6 @@
 package com.example.stillringstimer;
 
+import androidx.activity.OnBackPressedDispatcher;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -35,6 +36,15 @@ public class DisplayTraining extends AppCompatActivity {
             Intent intent = new Intent(DisplayTraining.this, Homepage.class);
             startActivity(intent);
         });
+        ImageButton backButton = findViewById(R.id.goBackButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getOnBackPressedDispatcher().onBackPressed();
+            }
+        });
+
+
         gson = new Gson();
 
         trainingName = findViewById(R.id.routineName);

@@ -52,6 +52,13 @@ public class AddNewRoutine extends AppCompatActivity {
             Intent intent = new Intent(AddNewRoutine.this, Homepage.class);
             startActivity(intent);
         });
+        ImageButton backButton = findViewById(R.id.goBackButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getOnBackPressedDispatcher().onBackPressed();
+            }
+        });
 
         Button addIntervalButton = findViewById(R.id.addNewIntervalButton);
         addIntervalButton.setOnClickListener(v -> addNewInterval());

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -107,6 +108,13 @@ public class MyRoutines extends AppCompatActivity {
         homeButton.setOnClickListener(v -> {
             Intent intent = new Intent(MyRoutines.this, Homepage.class);
             startActivity(intent);
+        });
+        ImageButton backButton = findViewById(R.id.goBackButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getOnBackPressedDispatcher().onBackPressed();
+            }
         });
 
 
