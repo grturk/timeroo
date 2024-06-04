@@ -8,17 +8,16 @@
 
     <Button
         android:id="@+id/routineButton"
-        android:layout_width="236dp"
-        android:layout_height="54dp"
+        android:layout_width="258dp"
+        android:layout_height="100dp"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/rounded_button_green_2"
-        android:padding="16dp"
-        android:text="Routine Button"
-        android:textColor="#FFFFFF"
-        tools:layout_editor_absoluteX="78dp"
-        tools:layout_editor_absoluteY="8dp"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:paddingVertical="20dp"
+        android:text="Trening"
+        android:textAppearance="@style/basicButtons"
+        android:theme="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

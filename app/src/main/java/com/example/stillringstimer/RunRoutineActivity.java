@@ -160,18 +160,18 @@ public class RunRoutineActivity extends AppCompatActivity {
             }
         }.start();
 
-        pauseButton.setText("Pause");
+        pauseButton.setText("PAUSE");
     }
 
     private void pauseResumeTimer() {
         if (isPaused) {
             startTimer();
             isPaused = false;
-            pauseButton.setText("Pause");
+            pauseButton.setText("PAUSE");
         } else {
             countDownTimer.cancel();
             isPaused = true;
-            pauseButton.setText("Resume");
+            pauseButton.setText("RESUME");
         }
     }
 
