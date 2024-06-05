@@ -1,13 +1,24 @@
-# Rings Timer
+# Timeroo
 
-## Idea
+## Aplikacija
 
-This app is designed for gymnasts, particularly those practicing on the rings. An exercise on rings typically involves several static elements, each of which must be held for at least two seconds. However, gymnasts and their coaches often struggle to count this time objectively due to the physical difficulty of the elements. A simple timer or stopwatch isn't sufficient because the coach needs to keep their eyes on the gymnast, not the device, to reset the timer and start it for every new element. To address this issue, I created this straightforward app to assist coaches and gymnasts in optimizing their training.
+Ta Android aplikacija je nastala za projekt pri predmetu Terminalske naprave in uporabniški vmesniki na Fakulteti za elektrotehniko. 
 
-## App
+Aplikacija ponuja tri timerje, ki so uporabni za šport - klasičen timer, gimnastični timer (specifično za kroge) in timer za intervalne treninge.
 
-The app features a user-friendly interface with a single large button that starts the timer and emits a short sound, signaling to both the gymnast and the coach that the timer has started. When the time runs out, another sound plays, and the timer is immediately reset, ready for the next press. The button's size allows the coach to operate it without needing to look at the phone during the exercise, ensuring accurate timing. The duration can be adjusted by one second or half a second using the increment and decrement buttons.
+### Klasičen timer
 
-## Technologies
+Prepost uporabniški vmesnik z možnostjo za začetek, premor in resetiranje timerja. Pred začetkom lahko poljubno nastaviš čas.
 
-The app is developed for the Android operating system using Android Studio, with Java and XML for programming and layout design.
+### Timer za kroge
+
+Ideja za ta timer se je razvila, ker morajo gimnastičarji svoje drže zadržati po dve sekundi, vendar pa je to izjemno težko, še težje pa je med držami pravilno šteti sekunde. Navadna štoparica ali timer v tem primeru ni uporabna, saj trener ne more dovolj hitro ponastavljati ure, in zadeti vseh malih gumbov na ekranu. Zato je ta timer v najini aplikaciji sestavljen samo iz enega zelo velikega gumba za start, ki ga trener lahko zadane brez gledanja v telefon, ko se izteče prej nastavljen čas, pa se timer samodejno ponastavi na začetno vrednost.
+
+### Timer za intervalne treninge
+
+Tu si lahko uporabnik ustvari treninge, sestavljene iz več intervalov dela in počitka. Recimo, uporabnik hoče, da se trikrat ponovi 45 sekund dela in 15 sekund počitka, nato pa še dvakrat 15 sekund dela in 10 sekund počitka. To lahko ustvari in trening shrani. Ko uporabnik trening požene, bo timer odšteval skozi vse intervale, dokler ne pride do konca. S tem si uporabnik lažje načrtuje svoje treninge.
+
+
+## Tehnologije
+
+Aplikacija je razvita za Android operacijske sisteme, v Android Studiu. Uporabljala sva javo in XML.
