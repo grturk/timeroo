@@ -55,26 +55,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginBottom="16dp" />
 
-    <!--Button
-        android:id="@+id/startButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/rounded_button_green_1"
-        android:paddingVertical="35dp"
-        android:paddingHorizontal="100dp"
-        android:text="Start"
-        android:textColor="#FFFFFF"
-        android:textSize="25dp"
-        android:theme="@null"
-        app:iconTint="@color/startButtonColor"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/intervalsContainer"
-        app:layout_constraintVertical_bias="0.693" />-->
-
     <Button
         android:id="@+id/saveRoutineButton"
         android:layout_width="wrap_content"

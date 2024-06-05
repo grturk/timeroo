@@ -65,33 +65,6 @@ public class AddNewRoutine extends AppCompatActivity {
 
         intervalsContainer = findViewById(R.id.intervalsContainer);
     }
-    /*
-    // dela gson, s tem se bo dal shrant
-    private void testGson() {
-        Interval testInterval = new Interval(60000, 30000, 5);
-        Gson gson = new Gson();
-        String json = gson.toJson(testInterval);
-        Log.d("GsonTest", "Serialized: " + json);
-
-        Interval deserializedInterval = gson.fromJson(json, Interval.class);
-        Log.d("GsonTest", "Deserialized: " + deserializedInterval.getWorkDuration());
-    }*/
-/*
-    private void saveRoutine() {
-        // dobim ime nove rutine iz Add routine
-        String routineName = editRoutineName.getText().toString().trim();
-
-        if (!routineName.isEmpty()) {
-            // intent za vracanje imena, da ga lahko shranimo v list
-            Intent resultIntent = new Intent();
-            resultIntent.putExtra("newRoutineName", routineName);
-            setResult(Activity.RESULT_OK, resultIntent);
-            finish();
-        } else {
-            Toast.makeText(this, "Routine name is required", Toast.LENGTH_SHORT).show();
-        }
-    }
-*/
     private void saveRoutine() {
         String routineName = editRoutineName.getText().toString().trim();
 
