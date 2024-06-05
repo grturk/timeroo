@@ -75,7 +75,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text=":"
+            android:text="."
             android:textAppearance="@style/setTimeStyle"/>
 
         <LinearLayout
@@ -106,6 +106,13 @@
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/s"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="s"
+            android:textAppearance="@style/setTimeStyle"/>
     </LinearLayout>
 
 
